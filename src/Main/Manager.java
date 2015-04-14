@@ -29,37 +29,33 @@ public class Manager {
         ids[0] = 1101;
         ids[1] = 1102;
         ids[2] = 1103;
-        while(true){
-        GetLogIn();
-        if(details.isEmpty() == true){
-            System.out.println("server unavailable");
-        }
-        if(details.containsValue(1) == true){
-             int id = GetInteger();
-        for (int i = 0; i < ids.length; i++) {
-            if (id == ids[i]) {
-                new UpdateDetails(details, id);
+        while (true) {
+            GetLogIn();
+            if (details.isEmpty() == true) {
+                System.out.println("server unavailable");
+            }
+            if (details.containsValue(1) == true) {
+                int id = GetInteger();
+                for (int i = 0; i < ids.length; i++) {
+                    if (id == ids[i]) {
+                        new UpdateDetails(details, id);
+
+                    }
+                }
+            } else {
+                new UDPListen(); //this is the main thread that receives device packets
 
             }
         }
-        }
-        else{
-             new UDPListen(); //this is the main thread that receives device packets
-    
-        }
-        }
 
-        }
+    }
 
     public void GetLogIn() {
         try {
             details.clear();
             details = getIt.GetDetails();
             System.out.println("details contains " + details.entrySet());
-            
 
-                
-            
         } catch (SQLException ex) {
             Logger.getLogger(Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -72,7 +68,4 @@ public class Manager {
         return idpacket;
     }
 
-
-
-    }
-
+}

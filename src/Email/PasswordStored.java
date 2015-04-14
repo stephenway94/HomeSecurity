@@ -14,7 +14,7 @@ public class PasswordStored {
 
 
     public  String PasswordStored(){
-        String Password = "******";
+        String Password = "R0cky123";
         return Password;
     }
 
