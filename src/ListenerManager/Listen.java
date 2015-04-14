@@ -39,8 +39,7 @@ public class Listen {
                 socket.receive(packet);
 
                 String stringpacket = new String(packet.getData());
-                int[] ids = {1103, 1102, 1101};
-                ProcessPacket tmp = null;
+         
 
                 int IntPacket = Integer.parseInt(stringpacket);
                 socket.close();

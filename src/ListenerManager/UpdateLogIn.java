@@ -20,7 +20,6 @@ import java.util.HashMap;
 public class UpdateLogIn implements HomeStrategy{
 
     private ResultSet result;
-    private int PACKETSIZE = 4;
 
     private Connection Connect;
     private Statement statement;
@@ -37,7 +36,7 @@ public class UpdateLogIn implements HomeStrategy{
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.18:3306/security", "root", "security"); //connects to the db
+            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.12:3306/security", "root", "security"); //connects to the db
             statement = Connect.createStatement(); //creates a statement (used later)
 
         } catch (Exception ex) {
