@@ -18,7 +18,7 @@ import javax.activation.*;
 public class EmailIt implements HomeStrategy {
     private PasswordStored PasswordStored;
 
-    public EmailIt(String content) throws MessagingException {
+    public EmailIt(String[] email, String content) throws MessagingException {
         this.PasswordStored = new PasswordStored();
         String Password = PasswordStored.PasswordStored();
         Properties EmailSettings = new Properties();
@@ -37,21 +37,23 @@ public class EmailIt implements HomeStrategy {
                         return new PasswordAuthentication("wayswebcam@gmail.com", Password);
                     }
                 });
-        String[] EmailAdd = new String[2];
-        EmailAdd[0] = "wayswebcam@gmail.com";
-        EmailAdd[1] = "f672707e8cd24a9197cd853b24401335@api.pushalot.com";
-        for (int i = 0; i < EmailAdd.length; i++) {
+
+        for (int i = 0; i < email.length; i++) {
+            if(email[i] != null){
 
             Message SendEmail = new MimeMessage(session);
             SendEmail.setFrom(new InternetAddress("wayswebcam@gmail.com"));
             SendEmail.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(EmailAdd[i]));
+                    InternetAddress.parse(email[i]));
             SendEmail.setSubject("Testing Subject");
             SendEmail.setText("Intrusion detected in " + content);
 
             Transport.send(SendEmail);
 
             System.out.println("Done");
+            }
+            else
+                break;
         }
 
     }

@@ -8,7 +8,6 @@ package Strategies;
 //import ListenerManager.Listen;
 import ListenerManager.ListenManager;
 import ListenerManager.UpdateDetails;
-import ProcessPacketInfo.ProcessDevice;
 import ProcessPacketInfo.ProcessPacket;
 import ProcessPacketInfo.getLogInDetails;
 import Main.GetDetails;
@@ -50,8 +49,8 @@ public class UDPListen implements HomeStrategy {
             for (int i = 0; i < ids.length; i++) {
                 if (id == ids[i]) {
                     new UpdateDetails(check, id);
-                    System.out.println("shouldn't be here");
                     device = true;
+                   return;
 
                 }
 

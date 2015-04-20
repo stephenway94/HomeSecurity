@@ -19,6 +19,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
+import Output.OutputManager;
 
 /**
  *
@@ -39,8 +40,14 @@ public class ProcessPacket implements HomeStrategy {
     private LogIn LogIn;
 
     public ProcessPacket(int packet) {
+        
+        try {
+            new OutputManager(packet);
+        } catch (MessagingException ex) {
+            Logger.getLogger(ProcessPacket.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-       System.out.println("this id should not start with 1 " + packet);
+       
         
         
     }

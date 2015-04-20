@@ -42,6 +42,7 @@ public class Listen {
          
 
                 int IntPacket = Integer.parseInt(stringpacket);
+                System.out.println("IntPacket is " + IntPacket);
                 socket.close();
 
              return IntPacket;

@@ -3,55 +3,60 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MySQL;
+package Main;
 
-import Strategies.HomeStrategy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 /**
  *
  * @author StephenRobert
  */
-public class UserLogIn implements HomeStrategy {
-    private Connection Connect;
+public class GetContent {
+            private Connection Connect;
     private Statement statement;
     private ResultSet result;
+    String content;
+    HashMap<Integer, String> Store = new HashMap<Integer, String>(); //stores data collected from the database
     
-    public UserLogIn() throws SQLException {
-        try{
+    public String GetContent(int id){
+    
+           try{
             Class.forName("com.mysql.jdbc.Driver");
             Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security","root","security");
             statement = Connect.createStatement();
-            String insert = ("update persons set age= 35 where id = 'Stephen'");
-            statement.executeUpdate(insert);
+            //String insert = ("update persons set age= 35 where id = 'Stephen'");
+            //statement.executeUpdate(insert);
+            
             
             getData();
+            content = Store.get(id);
             
         }catch(Exception ex){
-            System.out.println("Error " + ex);
-            
+            System.out.println("Error in GetContent; " + ex);
+             
             
         }
+        return content;
     }
     public void getData(){
         try{
-            String query = "Select * from persons";
+            String query = "Select * from devices";
             result = statement.executeQuery(query);
            
-            System.out.println("Records from database");
+          
             while(result.next()){
-                String name = result.getString("id");
-                String age = result.getString("age");
-                System.out.println("Name: " +name + " age " + age);
+                 
+                int id = result.getInt("Device");//gets integer from the device column
+                String Description = result.getString("Description");//gets string from description column
+                Store.put(id, Description);//puts the retrieved data into the hashmap
             }
         }catch(Exception ex){
             System.out.println(ex);
         }
     }
-    
     
 }

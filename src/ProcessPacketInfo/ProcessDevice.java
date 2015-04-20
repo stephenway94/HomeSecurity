@@ -16,6 +16,7 @@ import javax.mail.MessagingException;
  *
  * @author StephenRobert
  */
+/*
 public class ProcessDevice implements HomeStrategy {
     private GetDeviceInfo GetDeviceInfo;
     //private EmailIt Email;
@@ -46,3 +47,4 @@ public class ProcessDevice implements HomeStrategy {
    
     
 }
+*/

@@ -36,7 +36,7 @@ public class UpdateLogIn implements HomeStrategy{
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.12:3306/security", "root", "security"); //connects to the db
+            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security", "root", "security"); //connects to the db
             statement = Connect.createStatement(); //creates a statement (used later)
 
         } catch (Exception ex) {
