@@ -50,7 +50,7 @@ public class GetContent {
           
             while(result.next()){
                  
-                int id = result.getInt("Device");//gets integer from the device column
+                int id = result.getInt("Devices");//gets integer from the device column
                 String Description = result.getString("Description");//gets string from description column
                 Store.put(id, Description);//puts the retrieved data into the hashmap
             }

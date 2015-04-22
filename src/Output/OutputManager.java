@@ -6,7 +6,6 @@
 package Output;
 
 import Strategies.HomeStrategy;
-import Email.EmailIt;
 import Main.GetContent;
 import javax.mail.MessagingException;
 
@@ -24,8 +23,13 @@ public class OutputManager implements HomeStrategy {
      
         String[] email = Getemail.GetEmail();
         String content = getContent.GetContent(packet);
-        new EmailIt(email,content);
-        new SendUDP();
+        System.out.println("Description of the id is: " + content);
+        System.out.println("email would be sent here");
+        new UpdateFeed(content);
+        
+        //new EmailIt(email,content);
+        //new SendUDP();
+        System.out.println("UDP message would be sent here");
         
         
         

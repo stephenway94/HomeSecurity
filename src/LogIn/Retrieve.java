@@ -5,8 +5,6 @@
  */
 package LogIn;
 
-import Main.Manager;
-import LogIn.LogIn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

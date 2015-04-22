@@ -5,13 +5,11 @@
  */
 package ListenerManager;
 
-import ProcessPacketInfo.ProcessPacket;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -42,7 +40,7 @@ public class Listen {
          
 
                 int IntPacket = Integer.parseInt(stringpacket);
-                System.out.println("IntPacket is " + IntPacket);
+                System.out.println("Packet received is: " + IntPacket);
                 socket.close();
 
              return IntPacket;

@@ -12,12 +12,8 @@ import ProcessPacketInfo.ProcessPacket;
 import ProcessPacketInfo.getLogInDetails;
 import Main.GetDetails;
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

@@ -11,8 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -56,7 +54,7 @@ public class GetDeviceInfo implements HomeStrategy{
             result = statement.executeQuery(query);//creates result whic is used to retrieve data within the table
 
             while (result.next()) {  //whilst there is data in the table
-                int id = result.getInt("Device");//gets integer from the device column
+                int id = result.getInt("Devices");//gets integer from the device column
                 String Description = result.getString("Description");//gets string from description column
                 Store.put(id, Description);//puts the retrieved data into the hashmap
                 

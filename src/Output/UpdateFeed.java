@@ -3,40 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ProcessPacketInfo;
+package Output;
 
-import Strategies.HomeStrategy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 /**
  *
  * @author StephenRobert
  */
-public class UpdateDB implements HomeStrategy{
+public class UpdateFeed {
 
     private ResultSet result;
     private int PACKETSIZE = 4;
 
     private Connection Connect;
     private Statement statement;
- 
-    UpdateDB(int id, int update)  {
+    Calendar calendar = Calendar.getInstance();
+    Timestamp currentTimestamp = new java.sql.Timestamp(calendar.getTime().getTime());
+
+   
+
+    public UpdateFeed(String id) {
         
-        MakeConnection();
-        Update(id, update);
-        
-
-    }
-
-    public void MakeConnection() {
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security", "root", "security"); //connects to the db
             statement = Connect.createStatement(); //creates a statement (used later)
+            Update(id);
 
         } catch (Exception ex) {
             System.out.println("Error in UpdateDB Makeconnection:  " + ex);
@@ -44,21 +42,16 @@ public class UpdateDB implements HomeStrategy{
 
     }
 
-    public void Update(int id, int update) {
+    public void Update(String id) {
         try {
-            // int getValue = dbcheck.get(inout);
 
-            System.out.println("packet is " + update + " and getValue is " + id);
-
-            String insert = ("update login set LogInfo= '" + update + "' where id='" + id + "'"); //changes 8803 description
+            String insert = ("INSERT INTO feed (Description, time) VALUES('"+ id +"','"+ currentTimestamp + "')"); //changes 8803 description
             statement.executeUpdate(insert); // inputs insert into the database
 
         } catch (Exception ex) {
-            System.out.println("Error in Update Update;  " + ex);
+            System.out.println("Error in feed;  " + ex);
         }
 
     }
-
-  
 
 }
