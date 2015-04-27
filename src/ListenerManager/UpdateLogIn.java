@@ -35,7 +35,7 @@ public class UpdateLogIn implements HomeStrategy{
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security", "root", "security"); //connects to the db
+            Connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/security", "root", "security"); //connects to the db
             statement = Connect.createStatement(); //creates a statement (used later)
 
         } catch (Exception ex) {
@@ -50,7 +50,7 @@ public class UpdateLogIn implements HomeStrategy{
 
             System.out.println("packet is " + update + " and getValue is " + id);
 
-            String insert = ("update login set LogInfo= '" + update + "' where id='" + id + "'"); //changes 8803 description
+            String insert = ("update login set LogInfo= '" + update + "' where id='" + id + "'"); //changes 1101 description
             statement.executeUpdate(insert); // inputs insert into the database
 
         } catch (Exception ex) {

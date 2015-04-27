@@ -23,7 +23,7 @@ public class GetEmail {
     
            try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security","root","security");
+            Connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/security","root","security");
             statement = Connect.createStatement();
             //String insert = ("update persons set age= 35 where id = 'Stephen'");
             //statement.executeUpdate(insert);

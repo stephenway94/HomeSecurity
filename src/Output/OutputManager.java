@@ -25,7 +25,9 @@ public class OutputManager implements HomeStrategy {
         String content = getContent.GetContent(packet);
         System.out.println("Description of the id is: " + content);
         System.out.println("email would be sent here");
+        if(packet != 8803){
         new UpdateFeed(content);
+        }
         
         //new EmailIt(email,content);
         //new SendUDP();

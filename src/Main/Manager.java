@@ -25,10 +25,7 @@ public class Manager {
     public HashMap<Integer, Integer> details = new HashMap<Integer, Integer>();
 
     public Manager() throws IOException, SQLException {
-        int ids[] = new int[4];
-        ids[0] = 1101;
-        ids[1] = 1102;
-        ids[2] = 1103;
+      
         while (true) {
             GetLogIn();
             if (details.isEmpty() == true) {
@@ -36,8 +33,8 @@ public class Manager {
             }
             if (details.containsValue(1) == true) {
                 int id = GetInteger();
-                for (int i = 0; i < ids.length; i++) {
-                    if (id == ids[i]) {
+                for (int i = 0; i < details.size(); i++) {
+                    if (details.containsKey(id)) {
                         new UpdateDetails(details, id);
 
                     }

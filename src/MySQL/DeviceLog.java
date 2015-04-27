@@ -24,7 +24,7 @@ public class DeviceLog implements HomeStrategy{
     public DeviceLog() throws SQLException {
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connect = DriverManager.getConnection("jdbc:mysql://192.168.0.16:3306/security","root","security");
+            Connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/security","root","security");
             statement = Connect.createStatement();
            // String insert = ("update  set age= 35 where id=1");
             String name = "Dining room window";
